@@ -7,4 +7,14 @@ layout:
 - go.kubebuilder.io/v4
 projectName: kubebuilder-demo1
 repo: kubebuilder-demo1
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: aloys.tech
+  group: aloys
+  kind: App
+  path: kubebuilder-demo1/api/v1beta1
+  version: v1beta1
 version: "3"
