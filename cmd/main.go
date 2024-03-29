@@ -36,19 +36,22 @@ import (
 
 	aloysv1beta1 "kubebuilder-demo1/api/v1beta1"
 	"kubebuilder-demo1/internal/controller"
-	//+kubebuilder:scaffold:imports
+	// +kubebuilder:scaffold:imports
 )
 
 var (
-	scheme   = runtime.NewScheme()
+	// 初始化一个scheme
+	scheme = runtime.NewScheme()
+	// 日志配置
 	setupLog = ctrl.Log.WithName("setup")
 )
 
 func init() {
+	// 将k8s自定义的类型(gvk)进行注入，后续client就可以直接进行操作
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
-
+	// 注册自己的gvk 到scheme
 	utilruntime.Must(aloysv1beta1.AddToScheme(scheme))
-	//+kubebuilder:scaffold:scheme
+	// +kubebuilder:scaffold:scheme
 }
 
 func main() {
@@ -129,7 +132,7 @@ func main() {
 		setupLog.Error(err, "unable to create controller", "controller", "App")
 		os.Exit(1)
 	}
-	//+kubebuilder:scaffold:builder
+	// +kubebuilder:scaffold:builder
 
 	if err := mgr.AddHealthzCheck("healthz", healthz.Ping); err != nil {
 		setupLog.Error(err, "unable to set up health check")

@@ -26,9 +26,11 @@ import (
 
 var (
 	// GroupVersion is group version used to register these objects
+	// 定义G V
 	GroupVersion = schema.GroupVersion{Group: "aloys.aloys.tech", Version: "v1beta1"}
 
 	// SchemeBuilder is used to add go types to the GroupVersionKind scheme
+	// 初始化GV
 	SchemeBuilder = &scheme.Builder{GroupVersion: GroupVersion}
 
 	// AddToScheme adds the types in this group-version to the given scheme.

@@ -38,8 +38,8 @@ type AppStatus struct {
 	// Important: Run "make" to regenerate code after modifying this file
 }
 
-//+kubebuilder:object:root=true
-//+kubebuilder:subresource:status
+// +kubebuilder:object:root=true
+// +kubebuilder:subresource:status
 
 // App is the Schema for the apps API
 type App struct {
@@ -50,7 +50,7 @@ type App struct {
 	Status AppStatus `json:"status,omitempty"`
 }
 
-//+kubebuilder:object:root=true
+// +kubebuilder:object:root=true
 
 // AppList contains a list of App
 type AppList struct {
@@ -60,5 +60,7 @@ type AppList struct {
 }
 
 func init() {
+	// Register 里面也是调用的AddKnownTypes进行将自己的类型注册到Scheme
+	// Register 需要传入的是g v 和k ，g v在 SchemeBuilder 初始化的时候进行了定义
 	SchemeBuilder.Register(&App{}, &AppList{})
 }
