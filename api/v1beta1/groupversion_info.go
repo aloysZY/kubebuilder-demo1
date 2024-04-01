@@ -34,5 +34,6 @@ var (
 	SchemeBuilder = &scheme.Builder{GroupVersion: GroupVersion}
 
 	// AddToScheme adds the types in this group-version to the given scheme.
+	// AddToScheme将各种资源类型注册到 Client 使用的  Scheme 对象中
 	AddToScheme = SchemeBuilder.AddToScheme
 )
