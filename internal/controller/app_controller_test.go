@@ -30,7 +30,7 @@ import (
 	aloysv1beta1 "kubebuilder-demo1/api/v1beta1"
 )
 
-var _ = Describe("App Controller", func() {
+var _ = Describe("App client-go-Controller", func() {
 	Context("When reconciling a resource", func() {
 		const resourceName = "test-resource"
 

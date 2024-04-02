@@ -54,8 +54,8 @@ type App struct {
 	metav1.TypeMeta `json:",inline"`
 	// Finalizers []string
 	// Finalizers 是在对象删除之前需要执行的逻辑，比如你给资源类型中的每个对象都创建 了对应的外部资源，并且希望在 Kuebernetes 删除对应资源的同时删除关联的外部资源， 那么可以通过 Finalizers 来实现。当 Finalizers 字段存在时，相关资源不允许被强制删除。 所有的对象在被彻底删除之前，它的 Finalizers 字段必须为空，即必须保证在所有对象被 彻底删除之前，与它关联的所有相关资源已被删除
-	// 当metadata.DeletionTimestamp字段为非空时，Controller 监听对象并执行对应 Finalizers 的动作，在所有动作执行完成后，将该 Finalizer 从列表中移除。一旦 Finalizers 列表为空，就意味着所有 Finalizer 都被执行过，最终 Kubernetes 会删除该资源。
-	// 在 Operator Controller 中，最重要的逻辑就是 Reconcile 方法，Finalizers 也是在 Reconcile 中实现的
+	// 当metadata.DeletionTimestamp字段为非空时，client-go-Controller 监听对象并执行对应 Finalizers 的动作，在所有动作执行完成后，将该 Finalizer 从列表中移除。一旦 Finalizers 列表为空，就意味着所有 Finalizer 都被执行过，最终 Kubernetes 会删除该资源。
+	// 在 Operator client-go-Controller 中，最重要的逻辑就是 Reconcile 方法，Finalizers 也是在 Reconcile 中实现的
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
 	Spec   AppSpec   `json:"spec,omitempty"`
